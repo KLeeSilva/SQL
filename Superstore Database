@@ -53,35 +53,30 @@ VALUES
 
 Here is my Superstore project example here. Ive described each piece of code.
 
--- Order the item by price
-2
-​
-3
+-- write SQL query that orders the items by price
+
+SELECT *
+FROM superstore
+LIMIT 5;
+
 SELECT item_name, price
-4
 FROM superstore
-5
-ORDER BY price;
-6
-​
-7
--- Show the average item price
-8
-​
-9
-SELECT AVG(price), item_name
-10
-FROM superstore
-11
-GROUP BY item_name;
-12
-​
-13
--- Show minimum price for kitchen supplies
-14
-​
-15
-SELECT MIN(price), "Kitchen_Supplies"
-16
+ORDER BY price DESC;
+
+-- write SQL query that will show a statistic about the item prices
+
+SELECT SUM(price) as total_price
 FROM superstore;
+
+-- write a SQL query that will show a statistic about the price for items in kitchen supplies
+
+SELECT AVG(price) as average_price
+FROM superstore
+WHERE category= 'Kitchen Supplies';
+
+-- write a SQL query that shows how many air purifiers are in stock 
+
+SELECT stock_quantity
+FROM superstore
+WHERE item_name= 'Air Purifier';
 ​
